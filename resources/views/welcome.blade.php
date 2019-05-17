@@ -25,6 +25,9 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
+      <img src="{{URL::to('img/logo-2.png')}}" class="img-fluid" alt="" style="width:2%">
+      <p></p>
+      <p></p>
       <a class="navbar-brand js-scroll-trigger" href="#page-top">PontosAqui</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -82,9 +85,10 @@
   <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-        <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
+        <h1 class="mx-auto my-0 text-uppercase">Pontos Aqui</h1>
+        <img src="{{URL::to('img/logo-2.png')}}" class="img-fluid" alt="" style="width:50%">
+        <h2 class="text-white-50 mx-auto mt-2 mb-5">Clientes e Lojistas de mãos dadas.</h2>
+        <a href="#about" class="btn btn-primary js-scroll-trigger">Faça Parte</a>
       </div>
     </div>
   </header>
@@ -94,43 +98,47 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2 class="text-white mb-4">Built with Bootstrap 4</h2>
-          <p class="text-white-50">Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-            <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
+          <h2 class="text-white mb-4">Compre -> Cadastre -> Troque !!!</h2>
+          <p class="text-white-50">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy 
+          text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five 
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
+          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+          <div class="col-lg-12 mx-auto">
+            <img class="img-fluid mb-3 mb-lg-0 float-left" src="{{URL::to('img/communication.png')}}" style="width: 150px;" alt="">
+            <img class="img-fluid mb-3 mb-lg-0 float-none" src="{{URL::to('img/puzzle.png')}}" style="width: 150px;" alt="">
+            <img class="img-fluid mb-3 mb-lg-0 float-right" src="{{URL::to('img/friendship.png')}}" style="width: 150px;" alt="" >
+          </div>
+          <p></p>
         </div>
       </div>
-      <img src="{{URL::to('grayscale/img/ipad.png')}}" class="img-fluid" alt="">
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects Section --> 
   <section id="projects" class="projects-section bg-light">
     <div class="container">
 
       <!-- Featured Project Row -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src="{{URL::to('grayscale/img/bg-masthead.jpg')}}" alt="">
-        </div>
-        <div class="col-xl-4 col-lg-5">
-          <div class="featured-text text-center text-lg-left">
-            <h4>Shoreline</h4>
-            <p class="text-black-50 mb-0">Grayscale is open source and MIT licensed. This means you can use it for any project - even commercial projects! Download it, customize it, and publish your website!</p>
-          </div>
+          <h2 class="text-white mb-4">CompreTroque</h2>
+          <img class="img-fluid mb-3 mb-lg-0" src="{{URL::to('img/relacionamentos-2.png')}}"  alt="" >
         </div>
       </div>
 
       <!-- Project One Row -->
       <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
-          <img class="img-fluid" src="{{URL::to('grayscale/img/demo-image-01.jpg')}}" alt="">
+          <img class="img-fluid" src="{{URL::to('img/marketing-1.jpg')}}" style="width:110%" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-left">
-                <h4 class="text-white">Misty</h4>
-                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                <h4 class="text-white">O que é o Lorem Ipsum?</h4>
+                <p class="mb-0 text-white-50">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
                 <hr class="d-none d-lg-block mb-0 ml-0">
               </div>
             </div>
@@ -141,14 +149,14 @@
       <!-- Project Two Row -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src="{{URL::to('grayscale/img/demo-image-02.jpg')}}" alt="">
+          <img class="img-fluid" src="{{URL::to('img/marketing-2.jpg')}}"  alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
             <div class="d-flex h-100">
               <div class="project-text w-100 my-auto text-center text-lg-right">
-                <h4 class="text-white">Mountains</h4>
-                <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                <h4 class="text-white">De onde é que ele vem?</h4>
+                <p class="mb-0 text-white-50">Ao contrário da crença popular, o Lorem Ipsum não é simplesmente texto aleatório. Tem raízes numa peça de literatura clássica em Latim, de 45 AC, tornando-o com mais de 2000 anos. Richard McClintock.</p>
                 <hr class="d-none d-lg-block mb-0 mr-0">
               </div>
             </div>
