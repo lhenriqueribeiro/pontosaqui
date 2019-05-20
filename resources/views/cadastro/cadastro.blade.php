@@ -8,8 +8,11 @@
 		<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png" />
 		<link rel="icon" type="image/png" href="{{URL::to('cadastro.assets/img/favicon.png')}}" />
 
+		<!-- CSRF Token -->
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+
 		<title>PontosAqui | Cadastro</title>
-		
+
 		<!-- CSS Files -->
 		<link href="{{URL::to('cadastro.assets/css/bootstrap.min.css')}}" rel="stylesheet" />
 		<link href="{{URL::to('cadastro.assets/css/paper-bootstrap-wizard.css')}}" rel="stylesheet" />
@@ -18,6 +21,7 @@
 		<link href="https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css" rel="stylesheet">
 		<link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
 		<link href="{{URL::to('cadastro.assets/css/themify-icons.css')}}" rel="stylesheet">
+
 
 	</head>
 
@@ -72,7 +76,7 @@
 									<!--Ini 1ªEtapa -->
 		                            <div class="tab-pane" id="1etapa">
 										<div class="row">
-										<h5 class="info-text"> Preencha os campos obrigatórios(*)</h5>
+										<h5 class="info-text"> Preencha todos os campos</h5>
 											<div class="col-sm-4 col-sm-offset-1">
 												<div class="picture-container">
 													<div class="picture">
@@ -84,42 +88,45 @@
 											</div>
 											<div class="col-sm-6">
 												<div class="form-group">
-													<label for="username">Nome de Usuário(a)<small>(*)</small></label>
-													<input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
-													@if ($errors->has('username'))
-														<span class="help-block">
-															<strong>{{ $errors->first('username') }}</strong>
-														</span>
-													@endif		
-													<p></p>										
-													<label for="name">{{ __('Name') }}<small>(*)</small></label>
-													<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
-													@error('name')
-														<span class="invalid-feedback" role="alert">
-															<strong>{{ $message }}</strong>
-														</span>
-													@enderror
-													<p></p>
-													<label for="email">{{ __('E-Mail Address') }}<small>(*)</small></label>
-													<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-													@error('email')
-														<span class="invalid-feedback" role="alert">
-															<strong>{{ $message }}</strong>
-														</span>
-													@enderror
+													<div>
+														<label for="username">Usuário(a):</label>
+														<input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus>
+														@if ($errors->has('username'))
+															<span class="help-block">
+																<strong>{{ $errors->first('username') }}</strong>
+															</span>
+														@endif	
+													</div>
+													<div>
+														<label for="email">E-Mail:</label>
+														<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+														@error('email')
+																<span class="invalid-feedback" role="alert">
+																	<strong>{{ $message }}</strong>
+																</span>
+														@enderror
+													</div>	
 												</div>
 												<div class="form-group">
-													<label for="password" >{{ __('Password') }}<small>(*)</small></label>
-													<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-													@error('password')
-														<span class="invalid-feedback" role="alert">
-															<strong>{{ $message }}</strong>
-														</span>
-													@enderror
-		
-													<label for="password-confirm">{{ __('Confirm Password') }}<small>(*)</small></label>
-													<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-												</div>																									
+													<div>
+														<label for="password" >Senha:</label>
+														<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Mínimo 8 Caracteres..." required autocomplete="new-password">
+														@error('password')
+															<span class="invalid-feedback" role="alert">
+																<strong>{{ $message }}</strong>
+															</span>
+															<br>
+														@enderror
+													</div>
+													<div>
+														<label for="password-confirm">Confirmação de Senha:</label>
+														<input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirme sua Senha..." required autocomplete="new-password">
+													</div>
+												</div>	
+												<div>
+													<!--Mask-->	
+													<input name="cpfcnpj" class="mascara-cpfcnpj hidden"/>					
+ 												</div>																													
 											</div>
 										</div>	
 									</div>	
@@ -149,85 +156,64 @@
 										<div class="tab-content">
 											<div class="tab-pane" id="pf">
 												<div class="row">
-													<div class="col-sm-12">
-														<h5 class="info-text"> Are you living in a nice area? </h5>
-													</div>
 													<div class="col-sm-7 col-sm-offset-1">
 														<div class="form-group">
-															<label>Street Name</label>
-															<input type="text" class="form-control" placeholder="5h Avenue">
+															<label for="nomepf">Nome Completo:</label>
+															<input id="nomepf" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
+															@error('name')
+																<span class="invalid-feedback" role="alert">
+																	<strong>{{ $message }}</strong>
+																</span>
+															@enderror													
 														</div>
 													</div>
 													<div class="col-sm-3">
 														<div class="form-group">
-															<label>Street Number</label>
-															<input type="text" class="form-control" placeholder="242">
+															<label>Data de Nascimento:</label>
+															<input id="dtnasc" type="text" name="dtnasc" class="form-control" placeholder="01/01/2001">
 														</div>
 													</div>
 													<div class="col-sm-5 col-sm-offset-1">
 														<div class="form-group">
-															<label>City</label>
-															<input type="text" class="form-control" placeholder="New York...">
+															<label>Cpf:</label>
+															<input id="cpf" type="text" name="cpf" class="form-control" placeholder="123.456.789-01">
 														</div>
 													</div>
 													<div class="col-sm-5">
 														<div class="form-group">
-															<label>Country</label><br>
-															<select name="country" class="form-control">
-																<option value="Afghanistan"> Afghanistan </option>
-																<option value="Albania"> Albania </option>
-																<option value="Algeria"> Algeria </option>
-																<option value="American Samoa"> American Samoa </option>
-																<option value="Andorra"> Andorra </option>
-																<option value="Angola"> Angola </option>
-																<option value="Anguilla"> Anguilla </option>
-																<option value="Antarctica"> Antarctica </option>
-																<option value="...">...</option>
-															</select>
 														</div>
 													</div>
 												</div>
 											</div>
 											<div class="tab-pane" id="pj">
 												<div class="row">	
-													<div class="col-sm-12">
-														<h5 class="info-text"> Are you living in a nice area? </h5>
-													</div>
 													<div class="col-sm-7 col-sm-offset-1">
 														<div class="form-group">
-															<label>Street Name</label>
-															<input type="text" id="" name="" class="form-control" placeholder="5h Avenue">
+															<label for="nomepj">Nome Fantasia:</label>
+															<input id="nomepj" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
+															@error('name')
+																<span class="invalid-feedback" role="alert">
+																	<strong>{{ $message }}</strong>
+																</span>
+															@enderror													
 														</div>
 													</div>
 													<div class="col-sm-3">
 														<div class="form-group">
-															<label>Street Number</label>
-															<input type="text" class="form-control" placeholder="242">
+															<label>Data de Criação:</label>
+															<input id="dtcriac" type="text" name="dtcriac" class="form-control" placeholder="01/01/2001">
 														</div>
 													</div>
 													<div class="col-sm-5 col-sm-offset-1">
 														<div class="form-group">
-															<label>City</label>
-															<input type="text" class="form-control" placeholder="New York...">
+															<label>Cnpj:</label>
+															<input id="cnpj" type="text" name="cnpj" class="form-control" placeholder="123.456.789-01">
 														</div>
 													</div>
 													<div class="col-sm-5">
 														<div class="form-group">
-															<label>Country</label><br>
-															<select name="country" class="form-control">
-																<option value="Afghanistan"> Afghanistan </option>
-																<option value="Albania"> Albania </option>
-																<option value="Algeria"> Algeria </option>
-																<option value="American Samoa"> American Samoa </option>
-																<option value="Andorra"> Andorra </option>
-																<option value="Angola"> Angola </option>
-																<option value="Anguilla"> Anguilla </option>
-																<option value="Antarctica"> Antarctica </option>
-																<option value="...">...</option>
-															</select>
 														</div>
 													</div>
-
 												</div>
 											</div>		
 										</div>				
@@ -236,39 +222,33 @@
 		                            <div class="tab-pane" id="3etapa">
 		                                <div class="row">
 		                                    <div class="col-sm-12">
-		                                        <h5 class="info-text"> Are you living in a nice area? </h5>
+		                                        <h5 class="info-text"> Preencha seu endereço </h5>
 		                                    </div>
 		                                    <div class="col-sm-7 col-sm-offset-1">
 		                                    	<div class="form-group">
-		                                            <label>Street Name</label>
-		                                            <input type="text" id="streetadress" name="streetadress" class="form-control" placeholder="5h Avenue">
+		                                            <label>Rua:</label>
+		                                            <input type="text" id="rua" name="rua" class="form-control" placeholder="Av. Presidente Vargas">
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-3">
 		                                        <div class="form-group">
-		                                            <label>Street Number</label>
-		                                            <input type="text" class="form-control" placeholder="242">
+		                                            <label>Nº</label>
+		                                            <input id="numero" type="text" name="numero" class="form-control" placeholder="242">
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-5 col-sm-offset-1">
 		                                        <div class="form-group">
-		                                            <label>City</label>
-		                                            <input type="text" class="form-control" placeholder="New York...">
+		                                            <label>Cidade</label>
+		                                            <input id="cidade" type="text" name="cidade" class="form-control" placeholder="Rio de Janeiro">
 		                                        </div>
 		                                    </div>
 		                                    <div class="col-sm-5">
 		                                        <div class="form-group">
-		                                            <label>Country</label><br>
+		                                            <label>Estado</label><br>
 		                                            <select name="country" class="form-control">
-		                                                <option value="Afghanistan"> Afghanistan </option>
-		                                                <option value="Albania"> Albania </option>
-		                                                <option value="Algeria"> Algeria </option>
-		                                                <option value="American Samoa"> American Samoa </option>
-		                                                <option value="Andorra"> Andorra </option>
-		                                                <option value="Angola"> Angola </option>
-		                                                <option value="Anguilla"> Anguilla </option>
-		                                                <option value="Antarctica"> Antarctica </option>
-		                                                <option value="...">...</option>
+		                                                <option value="RJ"> Rio de Janeiro </option>
+		                                                <option value="SP"> São Paulo </option>
+		                                                <option value="DF"> Distrito Federal </option>
 		                                            </select>
 		                                        </div>
 		                                    </div>
@@ -297,19 +277,9 @@
 	    	</div><!-- end row -->
 		</div> <!--  big container -->
 </body>
-
-		
-		
-		
-
-		
-		
-		
-		
-		
-
 		
 	<!--   Core JS Files   -->
+	
 	<script src="{{URL::to('cadastro.assets/js/jquery-2.2.4.min.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('cadastro.assets/js/bootstrap.min.js')}}" type="text/javascript"></script>
 	<script src="{{URL::to('cadastro.assets/js/jquery.bootstrap.wizard.js')}}" type="text/javascript"></script>
@@ -319,5 +289,22 @@
 
 	<!--  More information about jquery.validate here: https://jqueryvalidation.org/	 -->
 	<script src="{{URL::to('cadastro.assets/js/jquery.validate.min.js')}}" type="text/javascript"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js" type="text/javascript"></script>
+	
+	<script>
+		// jQuery Mask Plugin v1.14.11
+		// github.com/igorescobar/jQuery-Mask-Plugin
+		var cpfMascara = function (val) {
+			return val.replace(/\D/g, '').length > 11 ? '00.000.000/0000-00' : '000.000.000-009';
+		},
+
+		cpfOptions = {
+			onKeyPress: function(val, e, field, options) {
+				field.mask(cpfMascara.apply({}, arguments), options);
+			}
+		};
+		$('.mascara-cpfcnpj').mask(cpfMascara, cpfOptions);
+	</script>
 
 </html>

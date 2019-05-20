@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
+        /*
         $pf = new pa_pf;
         if ($pf->istrue){
             $pf->nome = $request->input('nome');
@@ -91,5 +91,6 @@ class RegisterController extends Controller
             $endereco->estado = $request->input('estado');
             $endereco->save();
         }
+        */
     }
 }
